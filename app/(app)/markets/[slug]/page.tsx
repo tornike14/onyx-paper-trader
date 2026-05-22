@@ -4,6 +4,7 @@ import { fetchMarkets } from "@/lib/upstream";
 import { groupByEvent, eventSlug, formatDateCode } from "../helpers";
 import { categorizeMarkets } from "./helpers";
 import MarketSection from "./components/MarketSection";
+import AutoRefresh from "@/components/ui/AutoRefresh";
 
 const EventPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
@@ -16,6 +17,7 @@ const EventPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
 
   return (
     <div className="space-y-6">
+      <AutoRefresh />
       <div className="space-y-2">
         <Link
           href="/markets"

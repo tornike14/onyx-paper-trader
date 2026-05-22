@@ -1,6 +1,7 @@
 import { fetchMarkets } from "@/lib/upstream";
 import { groupByEvent } from "./helpers";
 import EventCard from "./components/EventCard";
+import AutoRefresh from "@/components/ui/AutoRefresh";
 
 const MarketsPage = async () => {
   const markets = await fetchMarkets();
@@ -8,6 +9,7 @@ const MarketsPage = async () => {
 
   return (
     <div className="space-y-6">
+      <AutoRefresh />
       <div className="flex items-baseline justify-between">
         <h1 className="text-2xl font-semibold">Markets</h1>
         <span className="text-sm text-text-dim">

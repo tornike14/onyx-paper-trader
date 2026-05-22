@@ -7,6 +7,7 @@ import { fetchMarkets } from "@/lib/upstream";
 import { computePositionRows, sumMarketValue, sumPnl } from "./helpers";
 import BalanceCard from "./components/BalanceCard";
 import PositionsTable from "./components/PositionsTable";
+import AutoRefresh from "@/components/ui/AutoRefresh";
 
 const PortfolioPage = async () => {
   const session = await auth();
@@ -38,6 +39,7 @@ const PortfolioPage = async () => {
 
   return (
     <div className="space-y-6">
+      <AutoRefresh />
       <h1 className="text-2xl font-semibold">Portfolio</h1>
       <BalanceCard cash={cash} marketValue={marketValue} unrealizedPnl={unrealizedPnl} />
       <PositionsTable rows={rows} />
