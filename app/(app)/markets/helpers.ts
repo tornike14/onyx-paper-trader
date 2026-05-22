@@ -1,7 +1,7 @@
 import type { UpstreamMarket } from "@/lib/upstream";
 import type { EventGroup, ParsedMarket } from "./types";
 
-const parse = (m: UpstreamMarket): ParsedMarket | null => {
+export const parseMarket = (m: UpstreamMarket): ParsedMarket | null => {
   if (m.yes_price === null) return null;
   const [eventName, selection, venue, dateCode] = m.name.split(" ; ");
   if (!eventName || !selection) return null;
@@ -24,7 +24,7 @@ const splitTeams = (eventName: string): [string, string] => {
 export const groupByEvent = (raw: UpstreamMarket[]): EventGroup[] => {
   const byEvent = new Map<string, ParsedMarket[]>();
   for (const m of raw) {
-    const parsed = parse(m);
+    const parsed = parseMarket(m);
     if (!parsed) continue;
     const bucket = byEvent.get(parsed.eventName);
     if (bucket) bucket.push(parsed);
