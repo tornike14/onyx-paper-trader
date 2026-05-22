@@ -69,7 +69,7 @@ const SignupForm = () => {
       />
       {error ? <p className="text-sm text-neg">{error}</p> : null}
       <Button type="submit" disabled={pending} className="w-full">
-        {pending ? "Creating account…" : "Sign up — get $1,000"}
+        {pending ? "Creating account..." : "Sign up and get $1,000"}
       </Button>
     </form>
   );

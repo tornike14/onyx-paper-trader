@@ -55,7 +55,7 @@ const LoginForm = () => {
       />
       {error ? <p className="text-sm text-neg">{error}</p> : null}
       <Button type="submit" disabled={pending} className="w-full">
-        {pending ? "Logging in…" : "Log in"}
+        {pending ? "Logging in..." : "Log in"}
       </Button>
     </form>
   );
