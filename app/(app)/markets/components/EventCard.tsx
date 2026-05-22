@@ -18,8 +18,8 @@ const EventCard = ({ group }: { group: EventGroup }) => {
       </header>
 
       <div className="px-4 pb-3 space-y-2">
-        <MoneylineButton team={group.awayTeam} market={group.awayMoneyline} />
-        <MoneylineButton team={group.homeTeam} market={group.homeMoneyline} />
+        <MoneylineButton team={group.awayTeam} market={group.awayMoneyline} slug={slug} />
+        <MoneylineButton team={group.homeTeam} market={group.homeMoneyline} slug={slug} />
       </div>
 
       <footer className="mt-auto px-4 py-2.5 border-t border-border flex items-center justify-between">
